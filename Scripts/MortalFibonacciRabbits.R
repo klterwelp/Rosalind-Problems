@@ -2,8 +2,8 @@
 ## Given: positive intergers n<= 100 m<= 20 
 ## Return: Total number of rabbit pairs after n-th month if all rabbits live m months. 
 
-n <- 6
-m <- 3
+n <- 87
+m <- 20
 
 dead <- c(0,0)
 adults <- c(0,1)
@@ -24,4 +24,4 @@ for(i in (m+1):n) {
   total[i]<-adults[i]+babies[i]}
     
 
-total[n]
+sprintf("%.f", total[n])
