@@ -2,7 +2,7 @@
 ## Given: Collection of DNA strings in FASTA format 
 ## Return: Consensus string and profile matix for collection 
 
-input <- readDNAStringSet("./Rosalind-Input/rosalind_consensus2.txt")
+input <- readDNAStringSet("./Rosalind-Input/rosalind_cons_2.txt")
 # Biostrings creates DNAStringset object of FASTA sequences 
 
 length <- width(input)
@@ -22,11 +22,18 @@ for(i in 1:length[1]) {
 # gives the name of each letter that is the max of the column
   # to be added to answer vec
 
-paste(answer, collapse = "")
+answer <- paste(answer, collapse = "")
 # collapses answer into a character string instead of vec 
 
-cat("A: ", paste(consensusAGCT[1,], collapse = ""));
-cat("C: ", paste(consensusAGCT[2,], collapse = ""));
-cat("G: ", paste(consensusAGCT[3,], collapse = ""));
-cat("T: ", paste(consensusAGCT[4,], collapse = ""))
+sink(file = "Consensus-output.txt")
+cat(answer)
+cat("\n")
+cat("A:", paste(consensusAGCT[1,], collapse = " "))
+cat("\n")
+cat("C:", paste(consensusAGCT[2,], collapse = " "))
+cat("\n")
+cat("G:", paste(consensusAGCT[3,], collapse = " "))
+cat("\n")
+cat("T:", paste(consensusAGCT[4,], collapse = " "))
+sink()
 
